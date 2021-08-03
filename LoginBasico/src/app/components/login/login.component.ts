@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(4),
       Validators.maxLength(20),
     ]),
   };
@@ -50,21 +50,23 @@ export class LoginComponent implements OnInit {
   }
 
   async login() {
-    /*
     try {
+      console.log('se ha pulsado login ');
+      //console.log(this.formLogin);
+      //console.log(this.formLogin.value);
+
       const result: any = await this._service.auth(this.formLogin.value);
+      console.log(result);
       const { JWT, info } = result;
 
       localStorage.setItem('JWT', JWT);
       localStorage.setItem('user', JSON.stringify(info));
-      this.router.navigate(['home']);
-    } catch (e) {
-      // mensaje -> usuario o password incorrectos
-    }
-    */
+      //una vez que paso el login rederigimos con router link, no usar href
 
-    console.log('se ha pulsado login ');
-    console.log(this.formLogin);
-    console.log(this.formLogin.value);
+      this.router.navigate(['home']);
+      return result;
+    } catch (e) {
+      return 'El usuario o password es incorrecto' + e;
+    }
   }
 }

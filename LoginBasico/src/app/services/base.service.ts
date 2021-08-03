@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root',
@@ -50,7 +49,7 @@ export class BaseService {
       this.handlerError(e);
     }
   }
-  async post(obj: any) {
+  async post(obj: Object) {
     // return await this.http.get(url).toPromise()
     try {
       const data: any = await this.http
@@ -75,6 +74,9 @@ export class BaseService {
   // PUT -> ()
 
   handlerError(e: any) {
+    //se podria agregar un sweetelert tambien conn un mensaje mas definido y estetico
+
+    //el router.navigate redirije a otra cosa ebn caso de error
     e.status === 401 ? this.router.navigate(['login']) : null;
     e.status === 404 ? this.router.navigate(['notfound']) : null;
   }
