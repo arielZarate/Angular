@@ -1,0 +1,28 @@
+<!-- {{ cursos | json }} -->
+
+<!--
+*ngIf="loaded; else loading"
+ -->
+<div class="container mt-5" *ngIf="loaded; else cargando">
+  <div class="row">
+    <div
+      class="col-lg-4 col-md-4 col-12 mt-3 mb-3"
+      *ngFor="let curso of cursos"
+    >
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ curso.nombre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+
+          <a href="#" class="card-link">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #cargando>
+  <!-- cargo un selector -->
+  <!-- La propiedad value es usada en el loading para cargar dicho valor  -->
+  <app-loading value="Cursos"></app-loading>
+</ng-template>
