@@ -1,0 +1,6 @@
+1 AppEmpleados : se crea una app 12-13 parctica guiada
+2 binding 9-10-11
+3 Directivas
+4 ComunicacionEntrecomponentes con la appEmpleados video 19-20
+5 serviciosAlertMensaje video 21-22
+6 routing 24 - 

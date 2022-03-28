@@ -1,0 +1,66 @@
+<div class="container-fluid m-0 bg-dark">
+  <div class="row justify-content-center align-items-center height-login">
+    <div class="col-4">
+      <form action="" [formGroup]="formLogin" (ngSubmit)="login()">
+        <!--    <span
+        class="text-danger"
+        *ngIf="
+          formLogin.get('usuario').status === 'INVALID' &&
+          formLogin.get('usuario').touched"
+      >El campo usuario es obligatorio</span >
+      -->
+
+        <div class="form-group">
+          <!-- for="usuario"   //surve para conectar el label con el id=usuario-->
+          <label for="usuario" class="text-white"
+            >Usuario <span class="text-danger">*</span></label
+          >
+          <span class="text-danger">{{ verifyField("usuario") }}</span>
+
+          <input
+            id="usuario"
+            autofocus
+            class="form-control"
+            formControlName="usuario"
+            placeholder="usuario"
+          />
+        </div>
+
+        <!-- **********separator de inputs************ -->
+        <div class="form-group">
+          <label for="password" class="text-white"
+            >Password <span class="text-danger">*</span></label
+          >
+
+          <span class="text-danger"> {{ verifyField("password") }}</span>
+
+          <input
+            id="password"
+            class="form-control"
+            formControlName="password"
+            type="password"
+            placeholder="*******"
+          />
+
+          <!-- Validaciones para el password -->
+
+          <!-- <span
+            class="text-danger"
+            *ngIf="
+              formLogin.get('password').status === 'INVALID' &&
+              formLogin.get('password').touched
+            "
+
+              <span class="text-danger">El campo password es Obligatorio</span>
+            -->
+        </div>
+        <div class="d-grid gap-2">
+          <!--   <button [disabled]="!formLogin.valid" class="btn btn-warning"> -->
+          <button class="btn btn-warning" [disabled]="!formLogin.valid">
+            Ingresar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

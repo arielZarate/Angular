@@ -1,0 +1,62 @@
+<h1 class="">{{ title }}</h1>
+
+<h2>Bootstrap and sweetAlert2 😎😎😎🤑</h2>
+
+<h4>npm i boostrap</h4>
+<h4>npm i sweetAlert2</h4>
+
+<div class="container-fluid">
+  <label for="btn1" class="text-dark">alerta 1:</label>
+  <button
+    id="btn1"
+    class="btn btn-success btn-lg"
+    (click)="getMessage1()"
+  ></button>
+
+  <br />
+
+  <label for="btn2" class="text-dark">alerta 2:</label>
+  <button
+    id="btn2"
+    class="btn btn-success btn-lg"
+    (click)="getMessage2()"
+  ></button>
+
+  <br />
+
+  <label for="btn3" class="text-center">alerta HTML:</label>
+  <button
+    id="btn3"
+    class="btn btn-success btn-lg"
+    (click)="getHTML1()"
+  ></button>
+
+  <br />
+
+  <label for="btn4" class="text-center">alerta 4</label>
+  <button
+    id="btn4"
+    class="btn btn-success btn-lg"
+    (click)="getMessage3()"
+  ></button>
+
+  <br />
+
+  <label for="btn5" class="text-center">alerta 5</label>
+  <button
+    id="btn5"
+    class="btn btn-success btn-lg"
+    (click)="getMessage4()"
+  ></button>
+
+  <br />
+
+  <label for="btn6" class="text-center">alerta 6</label>
+  <button
+    id="btn6"
+    class="btn btn-success btn-lg"
+    (click)="getMessage5()"
+  ></button>
+</div>
+
+<router-outlet></router-outlet>
