@@ -1,10 +1,9 @@
 <div class="container-fluid m-0 bg-dark">
-  <div class="row justify-content-center align-items-center height-login">
-    <div class="col-4">
-      <form action="" [formGroup]="formLogin" (ngSubmit)="login()">
-        <div class="form-group">
-          <label for="usuario" class="text-white"
-            >Usuario <span class="text-danger">*</span></label
+    <div class="row justify-content-center align-items-center height-login">
+        <div class="col-4">
+            <form [formGroup]="formLogin" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label for="usuario" class="text-white">Usuario <span class="text-danger">*</span></label
           >
           <!-- enel verifyField le paso el formControlName="usuario" -->
           <span class="text-danger">{{ verifyField("usuario") }}</span>
