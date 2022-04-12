@@ -34,6 +34,7 @@ export class BaseService {
           Authorization: token,
         }))
       : null;
+    //'Token vacio'
 
     return httpOptions;
   }
