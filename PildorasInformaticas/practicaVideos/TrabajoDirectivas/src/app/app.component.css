@@ -1,0 +1,6 @@
+.paraDirectores {
+  /* que sea rojo , negrita y subrayado */
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+}
