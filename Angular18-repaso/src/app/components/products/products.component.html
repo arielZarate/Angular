@@ -1,0 +1,52 @@
+<div class="text-center">
+  <h1>products componente</h1>
+
+  <p>Se puede Sumar de valores con interpolacion</p>
+
+  <p>{{ 5 + 3 }}</p>
+  <p>{{ 1500 | currency : "USD" }}</p>
+
+  <h3>Mi nombre es {{ name }}</h3>
+
+  <h1 class="py-10 text-2xl">{{ message_received }}</h1>
+  <div class="border-4 border-b-blue-500"></div>
+
+  <!--componente hijos-->
+
+  <div>
+    <button
+      type="button"
+      (click)="sendMessage()"
+      class="m-5 border border-slate-700 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-500"
+    >
+      Enviar mensaje el hijo con boton
+    </button>
+
+    <app-card
+      [foto]="url"
+      [alt]="alt"
+      [message_song]="message_father"
+    ></app-card>
+
+    <div class="border-4 border-b-lime-500"></div>
+    <app-card-detail
+      (messageSendToFather)="onMessageReceived($event)"
+    ></app-card-detail>
+  </div>
+
+  <div class="border-4 border-b-slate-700 my-10"></div>
+  <!--doble binding con [(ngModel)]-->
+
+  <div class="mb-20">
+    <label for="username">Nombre de usuario:</label>
+    <input
+      type="text"
+      id="username"
+      [(ngModel)]="username"
+      placeholder="Escribe tu nombre"
+    />
+
+    <p>Hola, {{ username }}!</p>
+    <!-- Refleja el valor en tiempo real -->
+  </div>
+</div>
