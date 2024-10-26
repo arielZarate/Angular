@@ -15,5 +15,5 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log('montando el componente app');
   }
-  title = 'mi Primer Componente con Angular ';
+  title = 'Angular 18 repaso general ';
 }
