@@ -1,40 +1,94 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  Output,EventEmitter,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { CardComponent } from './card/card.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from '../../services/message.service';
 @Component({
   selector: 'app-products',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CardComponent, CardDetailComponent, CurrencyPipe, FormsModule],
+  imports: [
+    CardComponent,
+    CardDetailComponent,
+    CurrencyPipe,
+    FormsModule,
+    CommonModule,
+  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
 export class ProductsComponent implements OnInit {
+  selectedFruta: boolean = false;
+
+  constructor(
+    private service: MessageService, //service de comunicacion detail cualwuier componente){
+    private cdr:ChangeDetectorRef
+  
+  ) {}
+
+  frutas = [
+    {
+      name: 'mandarina',
+      url: 'https://mon.es/wp-content/uploads/2018/11/Mandarina.png',
+      descripcion:
+        'Una fruta dulce y jugosa, perfecta para los días calurosos.',
+    },
+    {
+      name: 'naranja',
+      url: 'https://greenshop.ar/wp-content/uploads/2024/06/A.2.37-J.500GR.jpg',
+      descripcion:
+        'Una fuente excelente de vitamina C, ideal para el desayuno.',
+    },
+    {
+      name: 'manzana',
+      url: 'https://www.recetasnestlecam.com/sites/default/files/2022-04/tipos-de-manzana-royal-gala.jpg',
+      descripcion: 'Fruta crujiente y refrescante, popular en todo el mundo.',
+    },
+    {
+      name: 'banana',
+      url: 'https://jumboargentina.vtexassets.com/arquivos/ids/320502-800-600?v=636391554454870000&width=800&height=600&aspect=true',
+      descripcion: 'Rica en potasio, perfecta para una merienda rápida.',
+    },
+    {
+      name: 'melon',
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQlEYbljMTMjJlDL4uiMjVg_W1Lcu-t8OyZQ&s',
+      descripcion: 'Fruta refrescante y dulce, ideal para el verano.',
+    },
+  ];
+
+  //recibir message
+
+  message_received: string | null = '';
+
   ngOnInit(): void {
-    console.log('montando componente Products');
+    //me subscribo al mensaje recibido
+
+    this.service.message$.subscribe((fruta: string) => {
+      this.message_received = fruta;
+      console.log(fruta);
+      
+     this.cdr.markForCheck();
+
+    });
   }
 
-  //================================
-  username: string = '';
 
-  //======================================
-  name: string = 'Ariel Zarate';
-  alt: string = 'foto de camiseta de fondo';
+   //mensaje al padre
+   @Output() messageSendToFather = new EventEmitter<string>();
 
-  url: string =
-    'https://www.mmlracingshop.com/cdn/shop/files/all-over-print-mens-crew-neck-t-shirt-white-front-66e6ee4c5ab16.jpg?v=1726410340&width=533';
-
-  message_father: string = '';
-
-  message_received: string = '';
-
-  sendMessage() {
-    return (this.message_father =
-      'enviando mensaje por button desde `preducts-component a card-component');
-  }
-
-  onMessageReceived(message_del_hijo: string) {
-    this.message_received = message_del_hijo;
-  }
+   sendFather() {
+    
+    // this.service.sendMessage(name);
+    this.messageSendToFather.emit("Sape Sape");
+ 
+ 
+   }
+  //  */
 }

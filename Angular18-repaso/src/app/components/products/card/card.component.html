@@ -1,15 +1,22 @@
-<div class="my-10 bg-slate-400 flex flex-col justify-center items-center">
-  <p>
-    component hijo card recibe la imagen desde el padre usando one-way-binding
-  </p>
+<div class="">
+
+  <div
+    class="border border-slate-400 w-32 h-32 text-slate-900 mx-10 rounded-xl flex flex-col justify-center items-center"
+  >
+    {{ fruta?.name }}
+
+    <button
+      type="button"
+      (click)="mostrarDetalle()"
+      class="border text-[10px] rounded-lg bg-green-500 hover:bg-green-700 text-white p-0.5"
+    >
+      mostrar Fruta
+    </button>
+
+  
+  </div>
+
+
 </div>
 
-<img
-  [src]="foto"
-  [alt]="alt"
-  width="300"
-  height="300"
-  class="object-cover h-32 w-32"
-/>
 
-<p>{{ message_song }}</p>

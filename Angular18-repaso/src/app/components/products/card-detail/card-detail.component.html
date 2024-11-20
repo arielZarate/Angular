@@ -1,10 +1,28 @@
 <div>
-  <p>card-detail component</p>
-
-  <button
+  <!-- <button
     class="border border-slate-500 rounded-md p-1 hover:bg-cyan-100"
     (click)="sendFather()"
   >
     enviar mensaje al padre
-  </button>
+  </button>-->
+
+  <!-- card-detail.component.html -->
+  <div *ngIf="fruta" class="flex justify-center items-center flex-col">
+    <h2>{{ fruta.name }}</h2>
+    <img [src]="fruta.url" [alt]="fruta.name" width="300" height="300" />
+    <p>{{ fruta.descripcion }}</p>
+
+    <button
+      type="button"
+      class="my-5 border rounded-lg p-2"
+      [routerLink]="['/']"
+    >
+      volver
+    </button>
+
+
+   
+  </div>
+
+
 </div>
