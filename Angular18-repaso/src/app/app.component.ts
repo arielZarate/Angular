@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FormsComponent } from './components/forms/forms.component';
 
 import { CommonModule } from '@angular/common';
+import { ContactComponent } from "./components/contact/contact.component";
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,12 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterOutlet,
     ProductsComponent,
-    FormsComponent,
+    //FormsComponent,
+    ContactComponent,
     FormsModule,
     CommonModule,
-  ],
+    ContactComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
