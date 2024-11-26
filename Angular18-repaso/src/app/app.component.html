@@ -1,11 +1,15 @@
-<!--mi primer compnente-->
+<header>
+  <app-navbar></app-navbar>
+</header>
 
-<div class="text-3xl font-bold underline text-red-500 text-center">
-  {{ title }}
-</div>
+<main>
+  <!--mi primer compnente-->
 
+<!--  <div class="text-3xl font-bold underline text-red-500 text-center">
+    {{ title }}
+  </div>-->
 
-<!--
+  <!--
 
 <div class="flex justify-center items-center flex-col gap-2 my-8">
 <h1>Recibiendo mensaje desde el products</h1>
@@ -16,11 +20,7 @@
 
 -->
 
-<!--<app-forms></app-forms>-->
+  <router-outlet />
+</main>
 
-<app-contact></app-contact>
-   
-
-
-
-<router-outlet />
+<footer></footer>

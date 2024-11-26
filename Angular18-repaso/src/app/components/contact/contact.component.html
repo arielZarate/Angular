@@ -1,59 +1,86 @@
-
-
-
 <div>
+  <h3 class="text-center m-5">formulario con template-driven Angular</h3>
+  <section
+    class="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48 my-5"
+  >
+    <div
+      class="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800"
+    >
+      <div class="px-6 py-6 md:px-8 md:py-0">
+        <h2
+          class="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100"
+        >
+          Inicia sesion para recibir mas
+          <span class="text-blue-600 dark:text-blue-400 md:text-blue-300"
+            >contenido</span
+          >
+        </h2>
 
-    <h3 class="text-center m-5">formulario con template-driven Angular</h3>
-    <section class="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48  my-5">
-        <div class="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800">
-            <div class="px-6 py-6 md:px-8 md:py-0">
-                <h2 class="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Inicia sesion para recibir mas  <span class="text-blue-600 dark:text-blue-400 md:text-blue-300">contenido</span></h2>
-    
-                <p class="mt-2 text-[10px] text-gray-600 dark:text-gray-400 md:text-gray-400">todas las subscripciones estan sujetas de privacidad de las partes</p>
-            </div>
+        <p
+          class="mt-2 text-[10px] text-gray-600 dark:text-gray-400 md:text-gray-400"
+        >
+          todas las subscripciones estan sujetas de privacidad de las partes
+        </p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <!--aca en el input se ven los posibles casos
+                
+                1- two-binding:[(ngModel)]="Contact.correo"
+                
+                2- one-bindig= NgModel
+
+
+
+                ngForm
+                Rol principal: Gestiona todo el formulario como un objeto.
+                Para qué sirve:
+                Facilita la validación a nivel de formulario completo.
+                Proporciona acceso al estado del formulario, como:
+                contactForm.valid (¿todo el formulario es válido?)
+                contactForm.invalid (¿hay algún campo inválido?)
+                contactForm.pristine (¿ningún campo ha sido modificado?)
+                contactForm.dirty (¿algún campo ha sido modificado?)
+
+
+
+                ngModel se enfoca en los campos individuales.
+                ngForm se encarga de gestionar el formulario completo
+                -->
+        <div
+          class="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300"
+        >
+          <input
+            class="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
+            type="text"
+            placeholder="ingrese su correo"
+            aria-label="ingrese su correo"
+            [(ngModel)]="Model.correo"
+            name="correo"
+            #error="ngModel"
+            required
+          />
+
+          <button
+            type="submit"
+            class="px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
+            [disabled]="contactForm.invalid"
+          >
+            subscribete
+          </button>
         </div>
-    
-        <div class="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
-            <form  #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
-                <div class="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-                    <input class="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" 
-                    type="text" 
-                    
-                    placeholder="ingrese su correo" 
-                    aria-label="ingrese su correo"
-                    name="correo" 
-                    [(ngModel)]="model.correo"  
-                    #error_correo="ngModel"  
-                    required
-                    
-                    >
-                 
-    
-                    <button 
-                    type="submit"
-                    class="px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
-                    [disabled]="contactForm.invalid"
-                    
-                    >
-                    subscribete
-                </button>
 
-
-                <span [hidden]="error_correo.valid"
-                    
-                class="text-red-700 bg-red-300 rounded-md p-0.5 m-2"
-                >Este campo es requerido</span>
-                </div>
-
-              <!--  <pre class="text-black">{{ contactForm.value | json}}</pre>-->
-            </form>
-   
+        <div
+          [hidden]="error.valid || error.pristine"
+          class="text-red-700 bg-red-300 rounded-md p-0.5 m-2"
+        >
+          Este campo es requerido
         </div>
-    </section>
 
-
-
-
-
-
+        <!--  <pre class="text-black">{{ contactForm.value | json}}</pre>-->
+      </form>
+    </div>
+  </section>
 </div>

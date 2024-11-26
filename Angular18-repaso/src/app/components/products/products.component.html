@@ -1,4 +1,4 @@
-<div class="text-center">
+
   <!--  <h1>products componente</h1>
 
   <p>Se puede Sumar de valores con interpolacion</p>
@@ -15,26 +15,33 @@
   <div class="border-4 border-b-blue-500"></div>
 -->
 
-  <!--componente hijos-->
-
-  <h2 class="my-10">componente products</h2>
-
-
-
-  <div class="flex flex-wrap">
-    <div *ngFor="let item of frutas">
-      <app-card [fruta]="item"> </app-card>
-    </div>
-  </div>
+  <!--componente hijos
+  
+  
+    <h2 class="my-10">componente products</h2>
 
   <div class="flex justify-center items-center my-8">
-    <button type="button"
-    (click)="sendFather()"
-  
-    class="border p-2 rounded-lg bg-cyan-300 hover:bg-green-500  duration-500 ease-in-out hover:scale-95 "
-    >Enviar mensaje al padre</button>
+    <button
+      type="button"
+      (click)="sendFather()"
+      class="border p-2 rounded-lg bg-cyan-300 hover:bg-green-500 duration-500 ease-in-out hover:scale-95"
+    >
+      Enviar mensaje al padre
+    </button>
   </div>
+  
+  
+  
+  
+  -->
 
+  <ng-container>
+    <div class="flex flex-wrap justify-center items-center gap-2 my-3">
+      <div *ngFor="let fruta of frutas; trackBy: trackByFn">
+        <app-card [fruta]="fruta"></app-card>
+      </div>
+    </div>
+  </ng-container>
   <!--doble binding con [(ngModel)]-->
 
   <!-- <div class="mb-20">
@@ -50,6 +57,3 @@
   Refleja el valor en tiempo real
   </div> -->
 
-
-
-</div>

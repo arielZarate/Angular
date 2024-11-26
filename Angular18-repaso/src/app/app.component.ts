@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductsComponent } from './components/products/products.component'; //ruting
+import ProductsComponent from './components/products/products.component';
 import { FormsModule } from '@angular/forms';
 import { FormsComponent } from './components/forms/forms.component';
 
 import { CommonModule } from '@angular/common';
 import { ContactComponent } from "./components/contact/contact.component";
+import NavbarComponent from './shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,12 @@ import { ContactComponent } from "./components/contact/contact.component";
   imports: [
     RouterOutlet,
     ProductsComponent,
-    //FormsComponent,
+    FormsComponent,
     ContactComponent,
     FormsModule,
     CommonModule,
-    ContactComponent
+    ContactComponent,
+    NavbarComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

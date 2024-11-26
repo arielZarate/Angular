@@ -1,6 +1,6 @@
 import { Component, Input, OnInit ,Output,EventEmitter} from '@angular/core';
-import { Router } from '@angular/router';
-import { CardDetailComponent } from '../card-detail/card-detail.component';
+import { Router,RouterLink } from '@angular/router';
+
 
 interface Fruta {
   name: string;
@@ -11,19 +11,24 @@ interface Fruta {
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CardDetailComponent],
+  imports: [RouterLink],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css',
+ // styleUrl: './card.component.css',
 })
-export class CardComponent {
+export default class CardComponent {
   // @Input() foto: string = '';
   // @Input() alt: string = '';
   //  @Input() message_song: string = '';
 
   @Input() fruta: Fruta | undefined;
 
-  constructor(private router: Router) {}
+//  constructor(private router: Router) {}
 
+
+
+
+
+ /** //esta es una funcion que se usaba con el navigate()
   mostrarDetalle() {
     // console.log(this.fruta)
 
@@ -31,7 +36,7 @@ export class CardComponent {
     this.router.navigate(['/detail/', this.fruta?.name], {
       state: { fruta: this.fruta },
     });
-  }
+  } */
 
 
  

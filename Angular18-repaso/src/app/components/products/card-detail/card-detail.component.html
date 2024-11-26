@@ -1,4 +1,4 @@
-<div>
+<ng-container *ngIf="fruta">
   <!-- <button
     class="border border-slate-500 rounded-md p-1 hover:bg-cyan-100"
     (click)="sendFather()"
@@ -7,7 +7,7 @@
   </button>-->
 
   <!-- card-detail.component.html -->
-  <div *ngIf="fruta" class="flex justify-center items-center flex-col">
+  <!--  <div *ngIf="fruta" class="flex justify-center items-center flex-col">
     <h2>{{ fruta.name }}</h2>
     <img [src]="fruta.url" [alt]="fruta.name" width="300" height="300" />
     <p>{{ fruta.descripcion }}</p>
@@ -22,7 +22,46 @@
 
 
    
-  </div>
+  </div>-->
 
+  <!--otro detail-->
 
-</div>
+  <div
+    class="max-w-5xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 flex justify-center items-center"
+  >
+    <img
+      class="object-cover w-64 h-64"
+      [src]="fruta.url"
+      [alt]="fruta.name"
+      width="300"
+      height="300"
+      alt="Article"
+    />
+
+    <div class="p-6">
+      <div>
+        <span
+          class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400"
+          >Fruta</span
+        >
+        <a
+          href="#"
+          class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+          tabindex="0"
+          role="link"
+          >{{ fruta.name }}</a
+        >
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          {{ fruta.descripcion }}
+        </p>
+      </div>
+    </div>
+
+    <button class="border border-slate-500 rounded-md p-1 hover:bg-cyan-100"
+    [routerLink]="['/']" 
+    >
+      volver
+    </button>
+  </div> 
+  </ng-container
+>

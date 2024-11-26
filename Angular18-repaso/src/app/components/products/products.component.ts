@@ -2,35 +2,31 @@ import {
   Component,
   OnInit,
   ChangeDetectorRef,
-  Output,EventEmitter,
-  ChangeDetectionStrategy
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from '@angular/core';
-import { CardComponent } from './card/card.component';
-import { CardDetailComponent } from './card-detail/card-detail.component';
+import CardComponent from './card/card.component';
+
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '../../services/message.service';
+
 @Component({
   selector: 'app-products',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    CardComponent,
-    CardDetailComponent,
-    CurrencyPipe,
-    FormsModule,
-    CommonModule,
-  ],
+  imports: [CardComponent, FormsModule, CommonModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent implements OnInit {
+export  default class ProductsComponent implements OnInit {
   selectedFruta: boolean = false;
+
 
   constructor(
     private service: MessageService, //service de comunicacion detail cualwuier componente){
-    private cdr:ChangeDetectorRef
-  
+    private cdr: ChangeDetectorRef
   ) {}
 
   frutas = [
@@ -73,22 +69,22 @@ export class ProductsComponent implements OnInit {
     this.service.message$.subscribe((fruta: string) => {
       this.message_received = fruta;
       console.log(fruta);
-      
-     this.cdr.markForCheck();
 
+      this.cdr.markForCheck();
     });
   }
 
+  //mensaje al padre
+  @Output() messageSendToFather = new EventEmitter<string>();
 
-   //mensaje al padre
-   @Output() messageSendToFather = new EventEmitter<string>();
-
-   sendFather() {
-    
+  sendFather() {
     // this.service.sendMessage(name);
-    this.messageSendToFather.emit("Sape Sape");
- 
- 
-   }
+    this.messageSendToFather.emit('Sape Sape');
+  }
   //  */
+
+  trackByFn(index:number,item:any){
+    return item.id
+
+  }
 }

@@ -8,7 +8,7 @@ import { ReactiveFormsModule, FormControl, FormGroup, Validators, } from '@angul
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './forms.component.html',
-  styleUrl: './forms.component.css',
+ // styleUrl: './forms.component.css',
 })
 export class FormsComponent {
 

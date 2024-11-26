@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { compileNgModule } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 
 
@@ -22,19 +22,9 @@ interface ContactFormProp{
 export class ContactComponent implements OnInit {
 
 
-  /**
-   * 
-   
-  ngModel //una soladireccion
-
-[(ngModel)] doble direccion
-
-   */
-
-   model={
-    correo:""
-   }
-
+  Model:ContactFormProp={
+    correo:''
+  }
   
 
 
@@ -43,13 +33,39 @@ export class ContactComponent implements OnInit {
   }
 
 
-  onSubmit(form:any):void{
-   console.log("forms value",form)
 
- /**  if(this.model.correo ==="" || !this.model.correo)
+  private validateCorreo(correo:string):boolean{
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+    if(regex.test(correo)) 
+    {
+      return true;
+    }
+    else return false
+
+  }
+
+
+  // onSubmit(formValue:NgForm):void{            |1opcion| 
+    //onSubmit(formValue:ContactFormProp):void{  |2opcion|
+    
+    onSubmit(formValue:ContactFormProp):void{
+
+
+      console.log("onSubmit",formValue);
+  //console.log("onSubmit",formValue.value.correo);
+ /** if(this.validateCorreo(formValue.value)===false)
    {
-     alert("el campo esta vacio")
-   } */
+     alert("Correo not valid")
+   }
+   else{
+
+   //enviar el formulario al server
+   console.log("enviar el formulario")  
+
+
+   }  */
+ 
   }
 
 }

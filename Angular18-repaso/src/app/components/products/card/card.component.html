@@ -1,22 +1,33 @@
-<div class="">
-
-  <div
-    class="border border-slate-400 w-32 h-32 text-slate-900 mx-10 rounded-xl flex flex-col justify-center items-center"
-  >
-    {{ fruta?.name }}
-
-    <button
-      type="button"
-      (click)="mostrarDetalle()"
-      class="border text-[10px] rounded-lg bg-green-500 hover:bg-green-700 text-white p-0.5"
-    >
-      mostrar Fruta
-    </button>
-
+<div
+  class="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+>
   
+<a [routerLink]="['detail/',fruta?.name]" [state]="{fruta:fruta}"  >
+
+  <img
+  class="object-cover w-48 h-48"
+  src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Article"
+/>
+
+
+  <div class="p-6">
+    <div>
+      <span
+        class="text-xs font-medium text-blue-600 uppercase dark:text-blue-400"
+        >Fruta</span
+      >
+      <a
+        href="#"
+        class="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+        tabindex="0"
+        role="link"
+        >{{ fruta?.name }}</a
+      >
+   
+    </div>
   </div>
 
 
+</a>
 </div>
-
-
